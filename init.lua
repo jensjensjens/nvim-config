@@ -1,6 +1,9 @@
 -- execute 'source $CONFIG_DIR/neovide/config.vim'
 
 require("plugins")
+if vim.g.neovide then
+  vim.cmd([[set guifont=Hack\ Nerd\ Font\ Mono:h12]])  
+end
 
 o = vim.o       -- options
 bo = vim.bo     -- buffer local settings
