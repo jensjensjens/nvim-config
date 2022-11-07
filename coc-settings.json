@@ -20,6 +20,15 @@
       "args": [
         "--stdio"
       ]
+    },
+    "bicep": {
+      "command": "dotnet",
+      "args": [
+        "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
+      ],
+      "filetypes": [
+        "bicep"
+      ]
     }
   }
 }

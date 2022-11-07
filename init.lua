@@ -15,6 +15,7 @@ cmd = vim.cmd   -- execute vim commands
 g.nocompatible = true
 g.shell = '/bin/zsh' -- Use zsh as shell
 g.mapleader = ','
+g.python3_host_prog = "/opt/homebrew/bin/python3"
 
 -- Regular settings
 o.background = 'dark'

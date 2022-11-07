@@ -1,8 +1,6 @@
 ------------------------------- editorconfig -------------------------------
 vim.g.EditorConfig_core_mode = 'external_command'
 vim.g.EditorConfig_exec_path = '/opt/homebrew/bin/editorconfig'
-vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
-----------------------------------------------------------------------------
 
 -------------------------------- Nvim tree ---------------------------------
 vim.g.loaded = 1
@@ -35,8 +33,6 @@ require("nvim-tree").setup {
 -- We need to override this since it is set to 2 by nvim-tree
 vim.o.laststatus = 3
 
-----------------------------------------------------------------------------
-
 ------------------------------- Treesitter ---------------------------------
 require'nvim-treesitter.configs'.setup {
 highlight = {
@@ -61,13 +57,10 @@ highlight = {
 	},
 	auto_install = true,
 }
-----------------------------------------------------------------------------
 
 --------------------------------  GitSigns ---------------------------------
 require('gitsigns').setup()
-----------------------------------------------------------------------------
 
--------------------------------- Telescope ---------------------------------
 require("telescope").setup {
   defaults = {
     vimgrep_arguments = {
@@ -92,11 +85,9 @@ require("telescope").setup {
   },
 }
 vim.g.fzf_buffers_jump = 1
-----------------------------------------------------------------------------
 
 -------------------------------- Diff view ---------------------------------
 require("diffview").setup({})
-----------------------------------------------------------------------------
 
 ------------------------------- COC server ---------------------------------
 vim.g.loaded_ruby_provider = 0
@@ -145,14 +136,7 @@ vim.cmd([[
     \   'project_root': '.'
     \})
   endif
-  " Add bicep support
-  au BufRead,BufNewFile *.bicep set filetype=bicep
 ]])
--- local bicep_lsp_bin = "/usr/local/bin/bicep-langserver/Bicep.LangServer.dll"
--- require'lspconfig'.bicep.setup{
---     cmd = { "dotnet", bicep_lsp_bin };
--- }
-----------------------------------------------------------------------------
 
 -------------------------------- Formatter ---------------------------------
 require("formatter").setup({})
@@ -162,8 +146,6 @@ augroup FormatAutogroup
   autocmd BufWritePost * FormatWrite
 augroup END
 ]])
-----------------------------------------------------------------------------
-
 
 -----.--------------------------- Lualine ----------------------------------
 require('lualine').setup {
@@ -171,8 +153,6 @@ require('lualine').setup {
     theme = 'solarized_light'
   }
 }
-----------------------------------------------------------------------------
 
 -------------------------------- Tmux vim navigation -----------------------
 vim.g.tmux_navigator_no_mappings = 1
-----------------------------------------------------------------------------
