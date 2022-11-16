@@ -1,4 +1,5 @@
 undodir
 plugin
+nvim-venv
 
 .DS_Store
