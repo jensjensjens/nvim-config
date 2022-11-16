@@ -7,6 +7,7 @@ require("core.keymaps")
 require("gui.neovide")
 
 require("plugins.comment")
+require("plugins.indent-blankline")
 require("plugins.editorconfig")
 require("plugins.github-copilot")
 require("plugins.gitsigns")
