@@ -54,7 +54,7 @@ return packer.startup(function(use)
 	use("dominikduda/vim_current_word") -- highlight current word
 	use("lukas-reineke/indent-blankline.nvim")
 
-	use({ "junegunn/fzf", run = ":call fzf#install()" })
+	use("junegunn/fzf")
 	use("junegunn/fzf.vim")
 	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
 	use("kdheepak/lazygit.nvim")
