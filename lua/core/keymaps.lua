@@ -60,6 +60,9 @@ keymap.set("v", "<Up>", "<Nop>")
 -- Lsp Saga
 keymap.set("n", " ", "<cmd>Lspsaga show_line_diagnostics<CR>") -- Show line diagnostics
 keymap.set("n", " ", "<cmd>Lspsaga show_cursor_diagnostics<CR>") -- Show cursor diagnostic
+keymap.set("n", "<leader>o", "<cmd>LSoutlineToggle<CR>", { silent = true })
+keymap.set("n", "∂", "<cmd>Lspsaga open_floaterm<CR>", { silent = true }) -- Open floaterm
+keymap.set("t", "∂", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true }) -- close floaterm
 
 -- Lazygit
 keymap.set("n", "<leader>gg", ":LazyGit<CR>")
