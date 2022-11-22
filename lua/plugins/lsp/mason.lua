@@ -27,6 +27,7 @@ mason_null_ls.setup({
 		"jq", --json formatter
 		"markdownlint", -- markdown formatter/linter
 		"pylint",
+		"black", -- python formatter
 		"shfmt", -- shell scritps
 		"sql_formatter",
 		"editorconfig_checker",
