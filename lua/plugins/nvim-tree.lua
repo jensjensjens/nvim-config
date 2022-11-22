@@ -16,6 +16,7 @@ nvimtree.setup({
 		preserve_window_proportions = true,
 		side = "right",
 		number = true,
+		relativenumber = true,
 	},
 	-- change folder arrow icons
 	renderer = {
