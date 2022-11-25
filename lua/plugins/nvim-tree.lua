@@ -1,4 +1,3 @@
--- import nvim-tree plugin safely
 local nvimtree = require("nvim-tree")
 
 -- recommended settings from nvim-tree documentation
@@ -37,3 +36,5 @@ nvimtree.setup({
 		},
 	},
 })
+
+vim.opt.laststatus = 3
