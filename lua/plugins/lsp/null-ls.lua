@@ -15,7 +15,6 @@ null_ls.setup({
 		diagnostics.hadolint, -- dockerfile
 		diagnostics.editorconfig_checker,
 		diagnostics.yamllint,
-		diagnostics.gitlint, -- git commit messages
 		diagnostics.markdownlint, -- markdown formatter/linter
 		diagnostics.pylint.with({
 			prefer_local = "venv/bin",
