@@ -1,5 +1,5 @@
 local null_ls = require("null-ls")
-
+local utils = require("null-ls.utils")
 -- for conciseness
 local formatting = null_ls.builtins.formatting -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters
@@ -14,15 +14,16 @@ null_ls.setup({
 	sources = {
 		diagnostics.hadolint, -- dockerfile
 		diagnostics.editorconfig_checker,
-		diagnostics.yamllint,
+		diagnostics.yamllint.with({
+			root_dir = utils.root_pattern(".yamllint.yaml", ".git"),
+		}),
 		diagnostics.markdownlint, -- markdown formatter/linter
 		diagnostics.pylint.with({
 			prefer_local = "venv/bin",
+			root_dir = utils.root_pattern(".pylintrc", "pyproject.toml", "setup.py", "requirements.txt", ".git"),
+			extra_args = { "--rcfile", "pyproject.toml" },
 			env = function(params)
 				return { PYTHONPATH = params.root }
-			end,
-			cwd = function(params)
-				return vim.fn.fnamemodify(params.bufname, ":h")
 			end,
 		}),
 

@@ -86,8 +86,9 @@ lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	root_dir = function(fname)
-		return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname)
-			or util.path.dirname(fname)
+		return util.root_pattern(".git", ".pylintrc", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(
+			fname
+		) or util.path.dirname(fname)
 	end,
 })
 lspconfig["sqlls"].setup({

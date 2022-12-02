@@ -71,3 +71,8 @@ keymap.set("n", "<leader>gg", ":LazyGit<CR>")
 keymap.set("", "<leader>gb", ":Git blame<CR>")
 keymap.set("", "<leader>gl", ":Git log<CR>")
 keymap.set("", "<leader>gs", ":Git<CR>")
+
+-- Scribe
+keymap.set("", "<leader>ss", ":ScribeOpen<cr>")
+keymap.set("", "<leader>so", ":ScribeOpen<space>")
+keymap.set("", "<leader>sf", ":ScribeFind<cr>")
