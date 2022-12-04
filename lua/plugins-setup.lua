@@ -42,7 +42,7 @@ return packer.startup(function(use)
 	use("tomasiser/vim-code-dark")
 	use("sainnhe/sonokai")
 
-	use("Ostralyan/scribe.nvim") -- quick note taking
+	use("nvim-orgmode/orgmode")
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
 	use("szw/vim-maximizer") -- maximizes and restores current window
