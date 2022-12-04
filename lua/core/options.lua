@@ -43,7 +43,11 @@ opt.undofile = true
 opt.swapfile = false
 
 -- generic
-global.shell = "/bin/zsh" -- Use zsh as default shell
+if vim.loop.os_uname().sysname == "Linux" then
+	global.shell = "/usr/bin/zsh"
+elseif vim.loop.os_uname().sysname == "Darwin" then
+	global.shell = "/bin/zsh"
+end
 opt.iskeyword:append("-") -- treat dash separated words as a word text object"
 opt.autoread = true -- automatically reload files when they change
 opt.mouse = "" -- Disable mouse mode
