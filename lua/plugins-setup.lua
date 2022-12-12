@@ -105,6 +105,7 @@ return packer.startup(function(use)
 	})
 
 	use("rhysd/vim-github-support")
+	use("mtdl9/vim-log-highlighting")
 
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
