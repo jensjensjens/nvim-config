@@ -33,6 +33,7 @@ null_ls.setup({
 		formatting.sql_formatter,
 		formatting.black.with({
 			prefer_local = "venv/bin",
+			root_dir = utils.root_pattern(".pylintrc", "pyproject.toml", "setup.py", "requirements.txt", ".git"),
 			env = function(params)
 				return { PYTHONPATH = params.root }
 			end,

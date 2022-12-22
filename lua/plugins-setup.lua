@@ -108,7 +108,7 @@ return packer.startup(function(use)
 	use("mtdl9/vim-log-highlighting")
 
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-
+	use({ "debugloop/telescope-undo.nvim", requires = "nvim-telescope/telescope.nvim" })
 	use("github/copilot.vim")
 
 	if packer_bootstrap then
