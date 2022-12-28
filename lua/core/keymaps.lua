@@ -9,6 +9,10 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
+-- center the buffer after a cursor move
+keymap.set("n", "C-u", "<C-u>zz")
+keymap.set("n", "C-d", "<C-d>zz")
+
 -- plugin keymaps
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 

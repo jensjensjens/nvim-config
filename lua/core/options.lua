@@ -17,6 +17,8 @@ opt.wrap = false
 -- search settings
 opt.smartcase = true
 opt.ignorecase = true
+opt.hlsearch = false
+opt.incsearch = true
 
 -- cursorline
 opt.cursorline = true
@@ -25,6 +27,7 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.signcolumn = "yes"
+opt.scrolloff = 8
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
@@ -51,8 +54,8 @@ end
 opt.iskeyword:append("-") -- treat dash separated words as a word text object"
 opt.autoread = true -- automatically reload files when they change
 opt.mouse = "" -- Disable mouse mode
-home_dir = os.getenv("HOME")
-global.python3_host_prog = home_dir .. "/.config/nvim/nvim-venv/bin/python"
+HOME_DIR = os.getenv("HOME")
+global.python3_host_prog = HOME_DIR .. "/.config/nvim/nvim-venv/bin/python"
 
 global.loaded_ruby_provider = 0
 global.loaded_perl_provider = 0

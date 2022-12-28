@@ -42,7 +42,7 @@ return packer.startup(function(use)
 	use("tomasiser/vim-code-dark")
 	use("sainnhe/sonokai")
 
-	use("nvim-orgmode/orgmode")
+	use({ "phaazon/mind.nvim", branch = "v2.2", requires = { "nvim-lua/plenary.nvim" } })
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
 	use("szw/vim-maximizer") -- maximizes and restores current window
