@@ -35,7 +35,6 @@ null_ls.setup({
 		formatting.jq, --json formatter
 		formatting.stylua, -- lua formatter
 		formatting.shfmt, -- shell scritps
-		formatting.sql_formatter,
 		formatting.black.with({
 			prefer_local = "venv/bin",
 			root_dir = utils.root_pattern(".pylintrc", "pyproject.toml", "setup.py", "requirements.txt", ".git"),

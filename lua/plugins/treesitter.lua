@@ -4,11 +4,11 @@ if not status then
 end
 
 treesitter.setup({
-highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = false,
-  },
-  ensure_installed = {
+	highlight = {
+		enable = true,
+		additional_vim_regex_highlighting = false,
+	},
+	ensure_installed = {
 		"c_sharp",
 		"cmake",
 		"dockerfile",
@@ -20,13 +20,12 @@ highlight = {
 		"make",
 		"markdown",
 		"python",
-		"sql",
 		"vim",
-		"yaml"
+		"yaml",
 	},
 	auto_install = true,
-  -- enable indentation
-  indent = { 
-    enable = true 
-  }
+	-- enable indentation
+	indent = {
+		enable = true,
+	},
 })
