@@ -4,7 +4,6 @@ local actions_setup, actions = pcall(require, "telescope.actions")
 if not telescope_setup or not actions_setup then
 	return
 end
-print(actionsk)
 
 -- configure telescope
 telescope.setup({
