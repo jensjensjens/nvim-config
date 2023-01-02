@@ -1,49 +1,105 @@
-FROM ubuntu:latest
+FROM ubuntu:latest AS core
 
-SHELL ["/bin/bash", "-c"]
+SHELL ["/bin/bash", "-c", "-o", "pipefail"]
 
-WORKDIR /app
-RUN apt-get update && \
-    apt-get install -y \
+ENV TZ=Europe/Stockholm
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN useradd -g users -m -d /home/neovim -s /bin/bash neovim
+
+# Install tooling
+RUN apt-get update && apt-get install -y \
+    curl \
+    wget \
+    git \
     build-essential \
     libreadline-dev \
     unzip \
-    software-properties-common && \
-    add-apt-repository ppa:neovim-ppa/stable -y && \
-    apt-get update
+    software-properties-common \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get install --no-install-recommends -y \
-    curl  \
-    fd-find \
-    neovim \
-    python3.11\
+# Install node lts
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install nodejs -y
+
+# Install python3.11
+RUN add-apt-repository ppa:deadsnakes/ppa && \
+    apt-get update && \
+    apt-get install -y \
+    python3.11 \
+    python3.11-dev \
     python3.11-venv \
-    nodejs \
-    luajit \
-    npm \
+    python3.11-distutils \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install neovim
+RUN wget -qO- https://github.com/neovim/neovim/releases/download/v0.8.1/nvim-linux64.deb > nvim.deb && \
+    dpkg -i nvim.deb && \
+    rm nvim.deb
+
+# Install terminal tools
+RUN apt-get update && apt-get install -y \
+    fd-find \
+    luarocks \
     fzf \
-    ripgrep
+    ripgrep \
+    tmux \
+    zsh \
+    && rm -rf /var/lib/apt/lists/*
 
-RUN curl -R -O http://www.lua.org/ftp/lua-5.3.5.tar.gz && \
-    tar -zxf lua-5.3.5.tar.gz && \
-    cd lua-5.3.5 && \
-    make linux test && \
-    make install
+RUN npm install -g \
+    neovim \
+    tree-sitter-cli \
+    editorconfig-cli
 
-RUN python3.11 -m venv /root/.config/nvim/nvim-venv && \
-    source /root/.config/nvim/nvim-venv/bin/activate && \
-    pip3 install --upgrade pip && \
-    pip3 install neovim pynvim
+######################################################################
 
-RUN npm install -g neovim
+FROM core AS nvim_image
 
-RUN mkdir -p /root/.config/nvim
-COPY . /root/.config/nvim
+USER neovim
+WORKDIR /home/neovim/.config/nvim
+RUN mkdir -p .config/nvim
 
-RUN nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+# Set up virutalenv for neovims python provider
+COPY ./requirements.txt ./requirements.txt
+RUN python3.11 -m ensurepip && \
+    python3.11 -m venv nvim-venv && \
+    source nvim-venv/bin/activate && \
+    pip install --upgrade pip && \
+    pip install -r requirements.txt
 
-ENV LANG="en_US.UTF-8"
-ENV LC_ALL="en_US.UTF-8"
-ENV LC_CTYPE="en_US.UTF-8"
+# Copy over lua files
+COPY init.lua init.lua
+COPY ./lua ./lua
 
-ENTRYPOINT [ "nvim" ]
+# Install Packer packages
+RUN nvim \
+    --headless \
+    -c 'autocmd User PackerComplete quitall' \
+    -c 'PackerSync'
+
+# Workaround for some limit on number of packages to restore during PackerSync.
+# TODO, figure out who I need this.
+RUN nvim \
+    --headless \
+    -c 'autocmd User PackerComplete quitall' \
+    -c 'PackerSync'
+    
+RUN nvim --headless -c "MasonInstallAll"
+
+RUN git clone https://github.com/zsh-users/antigen.git /home/neovim/GitHub/antigen
+
+ENV CUSTOM_CONFIG_DIR=/home/neovim/GitHub/dotfiles
+RUN git clone https://github.com/jensjensjens/dotfiles.git $CUSTOM_CONFIG_DIR && \
+    echo "source $CUSTOM_CONFIG_DIR/zsh_init.sh" >> ~/.zshrc
+
+# Copy over tmux config
+WORKDIR /home/neovim
+COPY .tmux.conf .tmux.conf
+
+ENV DEBIAN_FRONTEND=""
+ENV TERM=xterm-256color
+
+WORKDIR /home/neovim/workspace
+
+ENTRYPOINT [ "tmux" ]
