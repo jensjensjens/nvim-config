@@ -1,7 +1,5 @@
 local cmp_status, cmp = pcall(require, "cmp")
-
 local luasnip_status, luasnip = pcall(require, "luasnip")
-
 local lspkind_status, lspkind = pcall(require, "lspkind")
 local vscode_loaders_status, vscode_loaders = pcall(require, "luasnip/loaders/from_vscode")
 if not cmp_status or not luasnip_status or not lspkind_status or not vscode_loaders_status then

@@ -1,9 +1,16 @@
+-----------------------------------------
+-- Entry point for loading all modules --
+-----------------------------------------
+
+-- Load the plugins --
 require("plugins-setup")
 
+-- Load the core modules --
 require("core.colorscheme")
 require("core.options")
 require("core.keymaps")
 
+-- Load the neovide overrides --
 require("gui.neovide")
 
 require("plugins.comment")
@@ -20,7 +27,7 @@ require("plugins.diffview")
 require("plugins.diffview")
 require("plugins.treesitter")
 
-require("plugins.lsp.lspconfig")
-require("plugins.lsp.null-ls")
 require("plugins.lsp.lspsaga")
 require("plugins.lsp.mason")
+require("plugins.lsp.lspconfig")
+require("plugins.lsp.null-ls")

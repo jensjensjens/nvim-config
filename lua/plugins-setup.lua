@@ -26,15 +26,11 @@ if not status then
 	return
 end
 
--- add list of plugins to install
 return packer.startup(function(use)
-	-- packer can manage itself
 	use("wbthomason/packer.nvim")
-
-	use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+	use("nvim-lua/plenary.nvim")
 
 	use("bluz71/vim-nightfly-guicolors")
-	use("glepnir/zephyr-nvim")
 	use("Mofiqul/vscode.nvim")
 	use("projekt0n/github-nvim-theme")
 	use("ajh17/Spacegray.vim")
@@ -43,6 +39,7 @@ return packer.startup(function(use)
 	use("sainnhe/sonokai")
 
 	use({ "phaazon/mind.nvim", branch = "v2.2", requires = { "nvim-lua/plenary.nvim" } })
+
 	use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
 	use("szw/vim-maximizer") -- maximizes and restores current window
@@ -53,19 +50,14 @@ return packer.startup(function(use)
 	use("tpope/vim-fugitive")
 
 	use("dominikduda/vim_current_word") -- highlight current word
-	use("lukas-reineke/indent-blankline.nvim")
+	use({ "lukas-reineke/indent-blankline.nvim", module = "indent_blankline" }) -- show indent lines
 
 	use("junegunn/fzf")
 	use("junegunn/fzf.vim")
-	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim" })
+	use({ "nvim-telescope/telescope.nvim", requires = "nvim-lua/plenary.nvim", module = "telescope" })
 	use("kdheepak/lazygit.nvim")
 	use("ryanoasis/vim-devicons")
-	use({
-		"nvim-tree/nvim-tree.lua",
-		requires = {
-			"nvim-tree/nvim-web-devicons", -- optional, for file icons
-		},
-	})
+	use({ "nvim-tree/nvim-tree.lua", requires = { "nvim-tree/nvim-web-devicons" } })
 
 	use("gpanders/editorconfig.nvim") -- respect editorconfig settings
 
