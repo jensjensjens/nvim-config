@@ -1,4 +1,7 @@
-local nvimtree = require("nvim-tree")
+local call, nvimtree = pcall(require, "nvim-tree")
+if not call then
+	return
+end
 
 -- recommended settings from nvim-tree documentation
 vim.g.loaded = 1

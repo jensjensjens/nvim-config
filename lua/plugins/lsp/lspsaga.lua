@@ -1,4 +1,8 @@
-local saga = require("lspsaga")
+local saga_call, saga = pcall(require, "lspsaga")
+
+if not saga_call then
+	return
+end
 
 saga.init_lsp_saga({
 	-- keybinds for navigation in lspsaga window

@@ -1,6 +1,11 @@
-local lspconfig = require("lspconfig")
-local cmp_nvim_lsp = require("cmp_nvim_lsp")
-local util = require("lspconfig/util")
+local lspconfig_call, lspconfig = pcall(require, "lspconfig")
+local cmp_nvim_lsp_call, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+local util_call, util = pcall(require, "lspconfig/util")
+
+if not lspconfig_call or not cmp_nvim_lsp_call or not util_call then
+	return
+end
+
 
 local keymap = vim.keymap -- for conciseness
 
@@ -91,10 +96,10 @@ lspconfig["pyright"].setup({
 		) or util.path.dirname(fname)
 	end,
 })
-lspconfig["sqlls"].setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
+-- lspconfig["sqlls"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 lspconfig["yamlls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,

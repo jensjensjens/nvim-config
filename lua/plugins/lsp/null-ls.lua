@@ -1,5 +1,10 @@
-local null_ls = require("null-ls")
-local utils = require("null-ls.utils")
+local null_ls_call, null_ls = pcall(require, "null-ls")
+local utils_call, utils = pcall(require, "null-ls.utils")
+
+if not null_ls_call or not utils_call then
+	return
+end
+
 -- for conciseness
 local formatting = null_ls.builtins.formatting -- to setup formatters
 local diagnostics = null_ls.builtins.diagnostics -- to setup linters
