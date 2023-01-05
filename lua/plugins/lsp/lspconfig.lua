@@ -84,6 +84,13 @@ lspconfig["powershell_es"].setup({
 	on_attach = on_attach,
 })
 
+lspconfig["tsserver"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	root_dir = function(fname)
+		return util.root_pattern(".git", ".package.json", "node_modules")(fname) or util.path.dirname(fname)
+	end,
+})
 lspconfig["pyright"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
