@@ -1,0 +1,5 @@
+nvim-venv/
+plain
+spell/
+
+.DS_Store
