@@ -3,6 +3,6 @@ return {
   lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd("colorscheme oceanic_material")
+    vim.cmd("colorscheme sonokai")
   end,
 }
