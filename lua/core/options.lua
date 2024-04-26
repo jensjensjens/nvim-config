@@ -1,6 +1,8 @@
 local opt = vim.opt
 local global = vim.g
 
+global.editorconfig = true
+
 -- improve find
 opt.path:append("**")
 opt.wildmenu = true
@@ -21,6 +23,13 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
+
+opt.list = false
+opt.listchars = {
+  lead = "·",
+  tab = "⇾ ",
+  trail = "·",
+}
 
 -- line wrapping
 opt.wrap = false

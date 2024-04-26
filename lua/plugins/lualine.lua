@@ -1,3 +1,12 @@
+local function ext_encoding()
+  local bufnr = vim.api.nvim_get_current_buf()
+  if vim.bo[bufnr].bomb then
+    return string.format("%s (bom)", vim.bo[bufnr].fileencoding)
+  else
+    return vim.bo[bufnr].fileencoding
+  end
+end
+
 return {
   "nvim-lualine/lualine.nvim",
   dependencies = {
@@ -7,7 +16,7 @@ return {
     options = {
       icons_enabled = true,
       globalstatus = true,
-      theme = "codedark",
+      theme = "OceanicNext",
       section_separators = "",
       component_separators = "",
     },
@@ -15,7 +24,18 @@ return {
       lualine_a = { "mode" },
       lualine_b = { "branch", "diff", "diagnostics" },
       lualine_c = { "searchcount", "selectioncount" },
-      lualine_x = { "encoding" },
+      lualine_x = {
+        ext_encoding,
+        {
+          "fileformat",
+          symbols = {
+            unix = "lf", -- e712
+            dos = "crlf", -- e70f
+            mac = "", -- e711
+          },
+        },
+        "filetype",
+      },
       lualine_y = { "progress" },
       lualine_z = { "location" },
     },
