@@ -6,6 +6,6 @@ vim.api.nvim_set_keymap("i", "<F3>", "copilot#Next()", { silent = true, expr = t
 
 return {
   "github/copilot.vim",
-  enabled = false,
+  enabled = true,
   event = { "BufReadPre", "BufNewFile" },
 }

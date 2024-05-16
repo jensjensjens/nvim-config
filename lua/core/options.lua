@@ -49,7 +49,7 @@ opt.scrolloff = 15
 
 -- spellcheck
 opt.spelllang = "en_us"
-opt.spell = true
+opt.spell = false
 
 -- backspace
 opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position

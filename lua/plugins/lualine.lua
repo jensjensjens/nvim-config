@@ -16,7 +16,6 @@ return {
     options = {
       icons_enabled = true,
       globalstatus = true,
-      theme = "OceanicNext",
       section_separators = "",
       component_separators = "",
     },
