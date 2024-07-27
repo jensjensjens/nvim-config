@@ -3,6 +3,8 @@ local keymap = vim.keymap
 -- Set nohlsearch to disable highlighting after search
 keymap.set("n", "<leader>nh", ":nohlsearch<CR><CR>", { silent = true, desc = "[N]o [H]lSearch" })
 
+keymap.set("n", "<leader>ts", ':r!date "+%Y%m%d%H%M.%S"<CR>', { silent = true, desc = "[T]ime[S]tamp" })
+
 -- [[ Leader ]]
 -- Make sure space is not used got anything except leader
 keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })

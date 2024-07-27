@@ -70,6 +70,10 @@ local handlers = {
   ["yamlls"] = function()
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
     capabilities.document_formatting = true
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
     require("lspconfig").yamlls.setup({
       capabilities = capabilities,
       settings = {
