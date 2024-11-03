@@ -36,5 +36,5 @@ require("core.statusline")
 require("gui.neovide")
 
 vim.opt.showtabline = 0
--- vim.cmd("colorscheme onedark")
+vim.cmd("colorscheme terafox")
 vim.cmd("highlight LineNr term=bold cterm=bold ctermfg=2 guifg=White")

@@ -4,5 +4,8 @@ return {
     "MunifTanjim/nui.nvim",
     "nvim-lua/plenary.nvim",
   },
-  opts = {},
+  opts = {
+    max_count = 6,
+    notification = false,
+  },
 }

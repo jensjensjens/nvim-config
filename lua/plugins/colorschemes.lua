@@ -1,4 +1,5 @@
 return {
+  { "EdenEast/nightfox.nvim" },
   {
     "jacoborus/tender.vim",
     event = "VeryLazy",
