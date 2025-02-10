@@ -98,6 +98,20 @@ local handlers = {
       },
     })
   end,
+  ["helm-ls"] = function()
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    local util = require("lspconfig/util")
+    require("lspconfig").helm_ls.setup({
+      capabilities = capabilities,
+      settings = {
+        ["helm-ls"] = {
+          yamlls = {
+            path = "yaml-language-server",
+          },
+        },
+      },
+    })
+  end,
   ["powershell_es"] = function()
     local util = require("lspconfig/util")
     require("lspconfig").powershell_es.setup({
