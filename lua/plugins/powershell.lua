@@ -1,0 +1,12 @@
+return {}
+-- return {
+--   "TheLeoP/powershell.nvim",
+--   opts = {
+--     bundle_path = '~/code/other/powershell-editor-services',
+--     filetypes = {"ps1", "psm1", "psd1"},
+--     settings = { powershell = { codeFormatting = { Preset = 'OTBS' } } },
+--     init_options = {
+--       enableProfileLoading = false,
+--     }
+--   }
+-- }
