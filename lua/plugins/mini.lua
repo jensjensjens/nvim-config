@@ -4,6 +4,7 @@ return {
   config = function()
     require("mini.cursorword").setup()
     require("mini.indentscope").setup()
+    require("mini.diff").setup()
   end,
   dependencies = {
     "echasnovski/mini.nvim",

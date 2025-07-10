@@ -112,5 +112,13 @@ return {
       capabilities = capabilities,
       handlers = handlers,
     })
+    lspconfig.jsonls.setup({
+      capabilities = capabilities,
+      handlers = handlers,
+      cmd = {
+        "vscode-json-languageserver",
+        "--stdio",
+      }
+    })
   end
 }

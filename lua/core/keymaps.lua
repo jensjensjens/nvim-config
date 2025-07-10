@@ -2,10 +2,14 @@ local keymap = vim.keymap
 -- [[ Search ]]
 -- Set nohlsearch to disable highlighting after search
 keymap.set("n", "<leader>nh", ":nohlsearch<CR><CR>", { silent = true, desc = "[N]o [H]lSearch" })
-
+keymap.set("n", "<leader>ts", ':r!date "+%Y%m%d%H%M.%S"<CR>', { silent = true, desc = "[T]ime[S]tamp" })
 -- [[ Leader ]]
 -- Make sure space is not used got anything except leader
 keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+
+keymap.set({ "n", "v" }, "<Space>cp", 'let @" = expand("%")', { silent = true })
+keymap.set({ "n", "v" }, "<Space>cP", 'let @" = expand("%:p")', { silent = true })
+keymap.set({ "n", "v" }, "<Space>cD", 'let @" = expand("%:h")', { silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -17,3 +21,4 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   group = highlight_group,
   pattern = "*",
 })
+
