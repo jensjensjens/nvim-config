@@ -1,7 +1,6 @@
 {
   "auto-dark-mode.nvim": { "branch": "master", "commit": "97a86c9402c784a254e5465ca2c51481eea310e3" },
   "bigfile.nvim": { "branch": "main", "commit": "33eb067e3d7029ac77e081cfe7c45361887a311a" },
-  "blink-copilot": { "branch": "main", "commit": "bdc45bbbed2ec252b3a29f4adecf031e157b5573" },
   "blink.cmp": { "branch": "main", "commit": "cb5e346d9e0efa7a3eee7fd4da0b690c48d2a98e" },
   "codecompanion.nvim": { "branch": "main", "commit": "17f7cbb6cabdc12195f164acf4c59c7c7c205b64" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
