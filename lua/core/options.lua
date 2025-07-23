@@ -72,6 +72,8 @@ elseif vim.loop.os_uname().sysname == "Darwin" then
   global.shell = "/bin/zsh"
 end
 
+opt.winborder = 'rounded'
+
 opt.autoread = true -- automatically reload files when they change
 HOME_DIR = os.getenv("HOME")
 --global.python3_host_prog = HOME_DIR .. "/.config/nvim/nvim-venv/bin/python"
