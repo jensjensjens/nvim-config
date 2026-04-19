@@ -1,0 +1,8 @@
+-- vim.lsp.config("cfn-lsp-extra", {
+--   cmd = { os.getenv("HOME") .. '/.local/bin/cfn-lsp-extra' },
+--   filetypes = { 'yaml.cloudformation', 'json.cloudformation' },
+--   root_markers = { '.git' },
+--   settings = {
+--     documentFormatting = false,
+--   },
+-- })

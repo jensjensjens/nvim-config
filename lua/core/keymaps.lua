@@ -7,9 +7,9 @@ keymap.set("n", "<leader>ts", ':r!date "+%Y%m%d%H%M.%S"<CR>', { silent = true, d
 -- Make sure space is not used got anything except leader
 keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
-keymap.set({ "n", "v" }, "<Space>cp", 'let @" = expand("%")', { silent = true })
-keymap.set({ "n", "v" }, "<Space>cP", 'let @" = expand("%:p")', { silent = true })
-keymap.set({ "n", "v" }, "<Space>cD", 'let @" = expand("%:h")', { silent = true })
+keymap.set("n", "<Space>cp", ':let @+ = expand("%")<CR>', { silent = true, desc = "[C]opy [P]ath" })
+keymap.set("n", "<Space>cP", ':let @+ = expand("%:p")<CR>', { silent = true, desc = "[C]opy full [P]ath" })
+keymap.set("n", "<Space>cD", ':let @+ = expand("%:h")<CR>', { silent = true, desc = "[C]opy [D]irectory path" })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`

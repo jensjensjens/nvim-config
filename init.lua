@@ -28,10 +28,19 @@ require("lazy").setup("plugins", {
 })
 
 -- Load the core modules --
+require("filetype")
 require("core.options")
 require("core.keymaps")
 require("core.lsp")
+require('vim._core.ui2').enable({})
 
 vim.opt.showtabline = 0
-vim.cmd("colorscheme catppuccin")
+vim.opt.colorcolumn = "80"
+vim.cmd("colorscheme vscode")
 vim.cmd("highlight LineNr term=bold cterm=bold ctermfg=2 guifg=White")
+
+vim.opt.guicursor = {
+  'n-v-c:block-Cursor/lCursor-blinkwait500-blinkon100-blinkoff100',
+  'i-ci:ver25-Cursor/lCursor-blinkwait500-blinkon100-blinkoff100',
+  'r:hor50-Cursor/lCursor-blinkwait100-blinkon100-blinkoff100'
+}
