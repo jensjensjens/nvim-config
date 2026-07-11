@@ -42,9 +42,17 @@ opt.ignorecase = false
 -- cursorline
 opt.cursorline = true
 
--- appearance
+-- appearance: follow the OS light/dark preference at startup.
+-- theme-watch pushes live changes into running instances via --remote-expr.
+local function os_background()
+  local ok, out = pcall(vim.fn.system, { "gsettings", "get", "org.gnome.desktop.interface", "color-scheme" })
+  if ok and type(out) == "string" and out:match("prefer%-light") then
+    return "light"
+  end
+  return "dark"
+end
 opt.termguicolors = true
-opt.background = "dark"
+opt.background = os_background()
 opt.signcolumn = "yes"
 opt.scrolloff = 15
 
