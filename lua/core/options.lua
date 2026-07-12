@@ -45,13 +45,12 @@ opt.cursorline = true
 -- appearance: follow the OS light/dark preference at startup.
 -- theme-watch pushes live changes into running instances via --remote-expr.
 local function os_background()
-  -- Ubuntu/Yaru uses 'prefer-dark' for dark and 'default' for light (never
-  -- 'prefer-light'), so treat anything but prefer-dark as light.
-  local ok, out = pcall(vim.fn.system, { "gsettings", "get", "org.gnome.desktop.interface", "color-scheme" })
-  if ok and type(out) == "string" and out:match("prefer%-dark") then
-    return "dark"
+  -- Match the terminal theme (tmux @theme, driven by prefix+T). Fallback dark.
+  local ok, out = pcall(vim.fn.system, { "tmux", "show-option", "-gqv", "@theme" })
+  if ok and type(out) == "string" and out:match("light") then
+    return "light"
   end
-  return "light"
+  return "dark"
 end
 opt.termguicolors = true
 opt.background = os_background()
